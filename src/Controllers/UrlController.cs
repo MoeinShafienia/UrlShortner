@@ -4,6 +4,7 @@ using src.Models;
 using System.Text.RegularExpressions;
 using System.Text;
 using System;
+using Newtonsoft.Json;
 
 namespace src.Controllers
 {
@@ -22,10 +23,27 @@ namespace src.Controllers
 
         
         [HttpPost]
-        public IActionResult post([FromBody]LongUrl longurl) {
+        public IActionResult post([FromBody]string longUrlJson) {
+
+            if (longUrlJson == null) {
+                return BadRequest();
+            }
+            LongUrl longUrl = null;
+            try
+            {
+                longUrl = JsonConvert.DeserializeObject<LongUrl>(longUrlJson);
+            }
+            catch (System.Exception)
+            {
+                return BadRequest();
+            }
+
+            if (longUrl == null || longUrl.url == null) {
+                return BadRequest();
+            }
 
             Url url = new Url();
-            url.LongUrl = longurl.url;
+            url.LongUrl = longUrl.url;
             
             if (url.LongUrl.Equals("")){
                 return BadRequest();

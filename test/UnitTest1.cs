@@ -90,7 +90,9 @@ namespace test
             .When()
                 .Post("http://localhost:5000/urls")
             .Then()
-                .TestStatus("Empty Post", r => r == 400)
+                .TestStatus("Empty Post", r => {
+                    Console.Write("status code i get:" + r);
+                    return r == 400;})
                 .Assert("Empty Post");
         }
 
