@@ -1,4 +1,4 @@
-namespace Bitly.Models
+namespace src.Models
 {
     public class Url
     {

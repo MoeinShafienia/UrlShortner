@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Bitly.Models;
+using src.Models;
 using System.Text.RegularExpressions;
 using System.Text;
 using System;
 
-namespace Bitly.Controllers
+namespace src.Controllers
 {
     [Route("/urls")]
     [ApiController]

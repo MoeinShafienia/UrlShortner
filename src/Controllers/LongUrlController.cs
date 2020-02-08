@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Bitly.Models;
+using src.Models;
 
-namespace Bitly.Controllers
+namespace src.Controllers
 {
     [Route("/redirect/{*shortUrl}")]
     [ApiController]
