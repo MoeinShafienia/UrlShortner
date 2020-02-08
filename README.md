@@ -6,7 +6,7 @@ This is a simple Url shortner app (like Bitly) written in .Net Core 3.1
 
 [.Net Core SDK](https://docs.microsoft.com/en-us/dotnet/core/install)
 
-###Download the project
+### Download the project
 
 ```
 git clone https://github.com/MoeinShafienia/UrlShortner.git
