@@ -22,7 +22,10 @@ namespace src.Controllers
 
         
         [HttpPost]
-        public IActionResult post([FromBody]Url url) {
+        public IActionResult post([FromBody]LongUrl longurl) {
+
+            Url url = new Url();
+            url.LongUrl = longurl.url;
             
             if (url.LongUrl.Equals("")){
                 return BadRequest();

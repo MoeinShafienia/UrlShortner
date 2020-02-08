@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using src.Models;
+using System;
 
 namespace src.Controllers
 {
@@ -24,6 +25,16 @@ namespace src.Controllers
         public IActionResult Get(string shortUrl) {
             if (shortUrl == null){
                 return BadRequest();
+            }
+
+            if (shortUrl.Length != 8){
+                return BadRequest();
+            }
+
+            for(int i=0;i < shortUrl.Length ; i++) {
+                if (!char.IsLetter(shortUrl,i)){
+                    return BadRequest();
+                }
             }
             
             Url url = _appDbContext.Urls.Find(shortUrl);
